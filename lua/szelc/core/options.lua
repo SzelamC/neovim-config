@@ -1,5 +1,4 @@
 local opt = vim.opt
-local g = vim.g
 
 -- line number
 opt.relativenumber = true
@@ -30,6 +29,7 @@ opt.backspace = "indent,eol,start"
 
 --clipboard
 opt.clipboard:append("unnamedplus")
+opt.clipboard = "unnamedplus"
 
 --split windows
 opt.splitright = true
@@ -53,3 +53,16 @@ opt.swapfile = false
 opt.scrolloff = 8
 opt.sidescrolloff = 8
 opt.timeoutlen = 200
+
+vim.diagnostic.config({
+  virtual_text = {
+    prefix = " 👿 "
+  }
+})
+
+-- highlight
+vim.cmd[[
+autocmd!
+au TextYankPost * silent! lua vim.highlight.on_yank({higroup="Visual", timeout=40})
+augroup END
+]]

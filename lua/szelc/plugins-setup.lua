@@ -19,11 +19,12 @@ vim.cmd([[
 ]])
 
 local status, packer = pcall(require, "packer")
+if not status then
+	return
+end
 
 return packer.startup(function(use)
 	use("wbthomason/packer.nvim")
-
-	-- My plugins here
 
 	-- essential plugins
 	use("nvim-lua/plenary.nvim")
@@ -39,11 +40,18 @@ return packer.startup(function(use)
 		},
 	})
 
-	-- comment
+	-- comment & utils
 	use("numToStr/Comment.nvim")
+  use("p00f/nvim-ts-rainbow")
+  use("norcalli/nvim-colorizer.lua")
+  use("folke/todo-comments.nvim")
 
 	-- appearance
 	use("bluz71/vim-nightfly-colors")
+	use({ "catppuccin/nvim", as = "catppuccin" })
+	use("LunarVim/lunar.nvim")
+
+	-- status line
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = {
@@ -93,11 +101,12 @@ return packer.startup(function(use)
 	use("windwp/nvim-autopairs")
 	use("windwp/nvim-ts-autotag")
 
+
 	-- buffer line
 	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })
 
-  -- git
-  use "lewis6991/gitsigns.nvim"
+	-- git
+	use("lewis6991/gitsigns.nvim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

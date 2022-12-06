@@ -9,7 +9,7 @@ local opts = { silent = true }
 -- common keymap
 keymap.set("i", "jk", "<ESC>")
 keymap.set("i", ";;", "<ESC>A;")
-keymap.set("n", "<leader>nh", ":nohl<CR>")
+keymap.set("n", "<leader>h", ":nohl<CR>")
 keymap.set("n", "x", '"_x')
 keymap.set("n", "<C-s>", ":w<CR>")
 keymap.set("n", "<C-h>", "<C-w>h")
@@ -21,7 +21,7 @@ keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "<", "<gv", opts)
 keymap.set("v", ">", ">gv", opts)
 
--- Nvim Tree 
+-- Nvim Tree
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
 
 -- Telescope
@@ -32,9 +32,9 @@ keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<CR>")
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<CR>")
 
 -- lsp related
-keymap.set("n", "<leader>lf", ":lua vim.lsp.buf.format()<CR>", { silent = true})
+keymap.set("n", "<leader>lf", ":lua vim.lsp.buf.format()<CR>", { silent = true })
 
 -- buufer line
-      keymap.set("n", "H", ":BufferLineCyclePrev<CR>")
-      keymap.set("n", "L", ":BufferLineCycleNext<CR>")
-      keymap.set("n", "<leader>c", ":bd<CR>", opts)
+keymap.set("n", "H", ":BufferLineCyclePrev<CR>")
+keymap.set("n", "L", ":BufferLineCycleNext<CR>")
+keymap.set("n", "<leader>c", ":bd<CR>", opts)
