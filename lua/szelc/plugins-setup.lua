@@ -42,14 +42,15 @@ return packer.startup(function(use)
 
 	-- comment & utils
 	use("numToStr/Comment.nvim")
-  use("p00f/nvim-ts-rainbow")
-  use("norcalli/nvim-colorizer.lua")
-  use("folke/todo-comments.nvim")
+	use("p00f/nvim-ts-rainbow")
+	use("norcalli/nvim-colorizer.lua")
+	use("folke/todo-comments.nvim")
 
 	-- appearance
 	use("bluz71/vim-nightfly-colors")
 	use({ "catppuccin/nvim", as = "catppuccin" })
 	use("LunarVim/lunar.nvim")
+	use({ "inside/vim-search-pulse" })
 
 	-- status line
 	use({
@@ -100,7 +101,6 @@ return packer.startup(function(use)
 	-- auto closing
 	use("windwp/nvim-autopairs")
 	use("windwp/nvim-ts-autotag")
-
 
 	-- buffer line
 	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })

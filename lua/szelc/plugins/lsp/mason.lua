@@ -19,7 +19,8 @@ mason_lspconfig.setup({
   ensure_instaled = {
     "tsserver",
     "sumneko_lua",
-    "tailwindcss"
+    "tailwindcss",
+    "pyright"
   }
 })
 
@@ -27,6 +28,7 @@ mason_null_ls.setup({
   ensure_instaled = {
     "prettier",
     "stylua",
-    "eslind_d"
+    "eslind_d",
+    "pyright"
   }
 })

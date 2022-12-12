@@ -244,6 +244,11 @@ _G.packer_plugins = {
     path = "/home/szelam/.local/share/nvim/site/pack/packer/start/vim-nightfly-colors",
     url = "https://github.com/bluz71/vim-nightfly-colors"
   },
+  ["vim-search-pulse"] = {
+    loaded = true,
+    path = "/home/szelam/.local/share/nvim/site/pack/packer/start/vim-search-pulse",
+    url = "https://github.com/inside/vim-search-pulse"
+  },
   ["vim-surround"] = {
     loaded = true,
     path = "/home/szelam/.local/share/nvim/site/pack/packer/start/vim-surround",

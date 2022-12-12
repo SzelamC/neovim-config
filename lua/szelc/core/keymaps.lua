@@ -20,6 +20,8 @@ keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "<", "<gv", opts)
 keymap.set("v", ">", ">gv", opts)
+keymap.set("n", "<C-d>", "<C-d>zz")
+keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- Nvim Tree
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
@@ -34,7 +36,16 @@ keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<CR>")
 -- lsp related
 keymap.set("n", "<leader>lf", ":lua vim.lsp.buf.format()<CR>", { silent = true })
 
--- buufer line
+-- buffer line
 keymap.set("n", "H", ":BufferLineCyclePrev<CR>")
 keymap.set("n", "L", ":BufferLineCycleNext<CR>")
-keymap.set("n", "<leader>c", ":bd<CR>", opts)
+keymap.set("n", "<leader>c", ":bd!<CR>", opts)
+
+-- Lspsag
+keymap.set("n", "ga", "<cmd>Lspsaga code_action<CR>", opts)
+keymap.set("n", "gd", "<cmd>Lspsaga hover_doc<CR>", opts)
+keymap.set("n", "gr", "<cmd>Lspsaga rename<CR>", opts)
+keymap.set("n", "<leader>gd", "<cmd>Lspsaga peek_definition<CR>", opts)
+
+-- python
+keymap.set("n", "<leader>r", ":sp<CR> :term python3 %<CR>")
