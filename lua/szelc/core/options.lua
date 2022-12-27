@@ -39,21 +39,24 @@ opt.splitbelow = true
 opt.iskeyword:append("-")
 
 opt.cmdheight = 1
-opt.colorcolumn = "99999"
+opt.colorcolumn = "80"
 opt.completeopt = { "menuone", "noselect" }
 opt.conceallevel = 0
 vim.opt.fileencoding = "utf-8"
 opt.foldmethod = "manual"
 opt.foldexpr = ""
-opt.hlsearch = true
+opt.hlsearch = false
+opt.incsearch = true
 opt.mouse = "a"
 opt.pumheight = 10
 opt.showmode = false
 opt.showtabline = 2
 opt.swapfile = false
+opt.backup = false
 opt.scrolloff = 8
 opt.sidescrolloff = 8
 opt.timeoutlen = 200
+opt.updatetime = 50
 
 vim.diagnostic.config({
   virtual_text = {

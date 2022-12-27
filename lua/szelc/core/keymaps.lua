@@ -22,6 +22,11 @@ keymap.set("v", "<", "<gv", opts)
 keymap.set("v", ">", ">gv", opts)
 keymap.set("n", "<C-d>", "<C-d>zz")
 keymap.set("n", "<C-u>", "<C-u>zz")
+keymap.set("n", "n", "nzzzv")
+keymap.set("n", "N", "Nzzzv")
+keymap.set("n", "<C-u>", "<C-u>zz")
+keymap.set("n", "<leader>y", "\"+y")
+keymap.set("v", "<leader>y", "\"+y")
 
 -- Nvim Tree
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
