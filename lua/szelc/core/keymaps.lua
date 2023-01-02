@@ -46,11 +46,12 @@ keymap.set("n", "H", ":BufferLineCyclePrev<CR>")
 keymap.set("n", "L", ":BufferLineCycleNext<CR>")
 keymap.set("n", "<leader>c", ":bd!<CR>", opts)
 
--- Lspsag
-keymap.set("n", "ga", "<cmd>Lspsaga code_action<CR>", opts)
+-- Lspsaga
+keymap.set("n", "<leader>la", "<cmd>Lspsaga code_action<CR>", opts)
 keymap.set("n", "gd", "<cmd>Lspsaga hover_doc<CR>", opts)
 keymap.set("n", "gr", "<cmd>Lspsaga rename<CR>", opts)
 keymap.set("n", "<leader>gd", "<cmd>Lspsaga peek_definition<CR>", opts)
+keymap.set("n", "ge", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
 
 -- python
 keymap.set("n", "<leader>r", ":sp<CR> :term python3 %<CR>")

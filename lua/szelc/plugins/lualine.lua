@@ -5,15 +5,16 @@ end
 
 lualine.setup({
 	options = {
-    -- theme = "horizon",
+		theme = "ayu_mirage",
 		disabled_filetypes = {
 			"packer",
 			"NvimTree",
 		},
-		component_separators = { left = "", right = "" },
+		component_separators = { left = "", right = "" },
+		section_separators = { left = "", right = "" },
 	},
 	sections = {
 		lualine_a = { "mode" },
-		lualine_b = { "branch", "diagnostics" },
+		lualine_b = { "branch", "diff", "diagnostics" },
 	},
 })

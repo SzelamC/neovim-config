@@ -60,8 +60,9 @@ opt.updatetime = 50
 
 vim.diagnostic.config({
   virtual_text = {
-    prefix = " 👿 "
-  }
+    prefix = "  "
+  },
+  float = true
 })
 
 -- highlight

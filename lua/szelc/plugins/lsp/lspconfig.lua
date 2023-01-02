@@ -116,3 +116,8 @@ lspconfig["pyright"].setup({
 })
 
 lspconfig["clangd"].setup({})
+lspconfig["yamlls"].setup({})
+lspconfig["dockerls"].setup({})
+lspconfig["svelte"].setup({})
+lspconfig["prismals"].setup({})
+lspconfig["emmet_ls"].setup({})

@@ -38,12 +38,18 @@ return packer.startup(function(use)
 		requires = {
 			"nvim-tree/nvim-web-devicons",
 		},
+		tag = "nightly",
 	})
 
 	-- comment & utils
 	use("numToStr/Comment.nvim")
 	use("p00f/nvim-ts-rainbow")
-	use("norcalli/nvim-colorizer.lua")
+	use({
+		"norcalli/nvim-colorizer.lua",
+		config = function()
+			require("colorizer").setup({})
+		end,
+	})
 	use("folke/todo-comments.nvim")
 	use({
 		"lukas-reineke/indent-blankline.nvim",
@@ -51,7 +57,20 @@ return packer.startup(function(use)
 
 	-- appearance
 	use("bluz71/vim-nightfly-colors")
-	use({ "catppuccin/nvim", as = "catppuccin" })
+	use({
+		"catppuccin/nvim",
+		as = "catppuccin",
+	})
+	use({
+		"navarasu/onedark.nvim",
+		config = function()
+			require("onedark").setup({
+				style = "darker",
+			})
+		end,
+	})
+	use("rebelot/kanagawa.nvim")
+	use("marko-cerovac/material.nvim")
 	use("LunarVim/lunar.nvim")
 	use({ "inside/vim-search-pulse" })
 
@@ -88,6 +107,7 @@ return packer.startup(function(use)
 	use({ "glepnir/lspsaga.nvim", branch = "main" })
 	use("jose-elias-alvarez/typescript.nvim")
 	use("onsails/lspkind.nvim")
+	use("j-hui/fidget.nvim")
 
 	-- formatting & linting
 	use("jose-elias-alvarez/null-ls.nvim")
@@ -100,6 +120,7 @@ return packer.startup(function(use)
 			require("nvim-treesitter.install").update({ with_sync = true })
 		end,
 	})
+	use({ "nvim-treesitter/playground" })
 
 	-- auto closing
 	use("windwp/nvim-autopairs")
@@ -113,6 +134,9 @@ return packer.startup(function(use)
 
 	-- playground
 	use("ThePrimeagen/vim-be-good")
+
+	-- leetcode
+	-- use("8ooo8/leetcode")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
