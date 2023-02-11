@@ -25,8 +25,11 @@ keymap.set("n", "<C-u>", "<C-u>zz")
 keymap.set("n", "n", "nzzzv")
 keymap.set("n", "N", "Nzzzv")
 keymap.set("n", "<C-u>", "<C-u>zz")
-keymap.set("n", "<leader>y", "\"+y")
-keymap.set("v", "<leader>y", "\"+y")
+keymap.set("n", "<leader>y", '"+y')
+keymap.set("v", "<leader>y", '"+y')
+keymap.set("n", "<leader>vs", ":vsplit<CR>")
+keymap.set("n", "<leader>s", ":split<CR>")
+keymap.set("n", "<leader>q", "<C-w><C-o>")
 
 -- Nvim Tree
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
@@ -50,8 +53,15 @@ keymap.set("n", "<leader>c", ":bd!<CR>", opts)
 keymap.set("n", "<leader>la", "<cmd>Lspsaga code_action<CR>", opts)
 keymap.set("n", "gd", "<cmd>Lspsaga hover_doc<CR>", opts)
 keymap.set("n", "gr", "<cmd>Lspsaga rename<CR>", opts)
-keymap.set("n", "<leader>gd", "<cmd>Lspsaga peek_definition<CR>", opts)
+keymap.set("n", "<leader>gd", "<cmd>Lspsaga goto_definition<CR>", opts)
 keymap.set("n", "ge", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
 
 -- python
 keymap.set("n", "<leader>r", ":sp<CR> :term python3 %<CR>")
+
+-- disable
+keymap.set("n", "q", "<Nop>")
+
+-- copilot
+keymap.set("n", "q", "<Nop>")
+vim.api.nvim_set_keymap("i", "<C-]>", 'copilot#Accept("<CR>")', { silent = true, expr = true })

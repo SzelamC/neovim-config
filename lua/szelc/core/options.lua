@@ -71,3 +71,5 @@ autocmd!
 au TextYankPost * silent! lua vim.highlight.on_yank({higroup="Visual", timeout=40})
 augroup END
 ]]
+
+vim.g.copilot_no_tab_map = true

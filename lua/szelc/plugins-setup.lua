@@ -1,146 +1,129 @@
-local ensure_packer = function()
-	local fn = vim.fn
-	local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-	if fn.empty(fn.glob(install_path)) > 0 then
-		fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
-		vim.cmd([[packadd packer.nvim]])
-		return true
-	end
-	return false
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
+vim.opt.rtp:prepend(lazypath)
 
-local packer_bootstrap = ensure_packer()
-
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins-setup.lua source <afile> | PackerSync
-  augroup end
-]])
-
-local status, packer = pcall(require, "packer")
-if not status then
-	return
-end
-
-return packer.startup(function(use)
-	use("wbthomason/packer.nvim")
+require("lazy").setup({
+	"wbthomason/packer.nvim",
 
 	-- essential plugins
-	use("nvim-lua/plenary.nvim")
+	"nvim-lua/plenary.nvim",
 
 	-- shorthand
-	use("tpope/vim-surround")
+	"tpope/vim-surround",
 
 	-- file explorer
-	use({
+	{
 		"nvim-tree/nvim-tree.lua",
-		requires = {
+		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 		},
 		tag = "nightly",
-	})
+	},
 
 	-- comment & utils
-	use("numToStr/Comment.nvim")
-	use("p00f/nvim-ts-rainbow")
-	use({
+	"numToStr/Comment.nvim",
+	"p00f/nvim-ts-rainbow",
+	{
 		"norcalli/nvim-colorizer.lua",
+		lazy = true,
 		config = function()
 			require("colorizer").setup({})
 		end,
-	})
-	use("folke/todo-comments.nvim")
-	use({
-		"lukas-reineke/indent-blankline.nvim",
-	})
+	},
+	"folke/todo-comments.nvim",
+	"lukas-reineke/indent-blankline.nvim",
 
 	-- appearance
-	use("bluz71/vim-nightfly-colors")
-	use({
-		"catppuccin/nvim",
-		as = "catppuccin",
-	})
-	use({
-		"navarasu/onedark.nvim",
-		config = function()
-			require("onedark").setup({
-				style = "darker",
-			})
-		end,
-	})
-	use("rebelot/kanagawa.nvim")
-	use("marko-cerovac/material.nvim")
-	use("LunarVim/lunar.nvim")
-	use({ "inside/vim-search-pulse" })
+	"bluz71/vim-nightfly-colors",
+	"catppuccin/nvim",
+	"inside/vim-search-pulse",
 
 	-- status line
-	use({
+	{
 		"nvim-lualine/lualine.nvim",
-		requires = {
-			"kyazdani42/nvim-web-devicons",
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
 		},
-	})
+	},
 
 	-- telescope
-	use({
-		"nvim-telescope/telescope.nvim",
-		tag = "0.1.0",
-	})
-	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+	{ "nvim-telescope/telescope.nvim", tag = "0.1.0" },
+	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 
 	-- autocompletion
-	use("hrsh7th/nvim-cmp")
-	use("hrsh7th/cmp-buffer")
-	use("hrsh7th/cmp-path")
-	use("hrsh7th/cmp-nvim-lsp")
+	{
+		"hrsh7th/nvim-cmp",
+		event = "InsertEnter",
+		dependencies = {
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-nvim-lsp",
+		},
+	},
 
 	-- snippets
-	use("L3MON4D3/LuaSnip")
-	use("saadparwaiz1/cmp_luasnip")
-	use("rafamadriz/friendly-snippets")
+	"L3MON4D3/LuaSnip",
+	"saadparwaiz1/cmp_luasnip",
+	"rafamadriz/friendly-snippets",
 
 	-- LSP
-	use("williamboman/mason.nvim")
-	use("williamboman/mason-lspconfig.nvim")
-	use("neovim/nvim-lspconfig")
-	use({ "glepnir/lspsaga.nvim", branch = "main" })
-	use("jose-elias-alvarez/typescript.nvim")
-	use("onsails/lspkind.nvim")
-	use("j-hui/fidget.nvim")
+	"williamboman/mason.nvim",
+	"williamboman/mason-lspconfig.nvim",
+	"neovim/nvim-lspconfig",
+	{ "glepnir/lspsaga.nvim", branch = "main" },
+	"onsails/lspkind.nvim",
+	"j-hui/fidget.nvim",
 
 	-- formatting & linting
-	use("jose-elias-alvarez/null-ls.nvim")
-	use("jayp0521/mason-null-ls.nvim")
+	"jose-elias-alvarez/null-ls.nvim",
+	"jayp0521/mason-null-ls.nvim",
 
 	-- Treesitter
-	use({
-		"nvim-treesitter/nvim-treesitter",
-		run = function()
-			require("nvim-treesitter.install").update({ with_sync = true })
-		end,
-	})
-	use({ "nvim-treesitter/playground" })
+	"nvim-treesitter/nvim-treesitter",
+	"nvim-treesitter/playground",
 
 	-- auto closing
-	use("windwp/nvim-autopairs")
-	use("windwp/nvim-ts-autotag")
+	"windwp/nvim-autopairs",
+	"windwp/nvim-ts-autotag",
 
 	-- buffer line
-	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })
+	{ "akinsho/bufferline.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
 
 	-- git
-	use("lewis6991/gitsigns.nvim")
+	"lewis6991/gitsigns.nvim",
 
 	-- playground
-	use("ThePrimeagen/vim-be-good")
+	"ThePrimeagen/vim-be-good",
 
-	-- leetcode
-	-- use("8ooo8/leetcode")
-
-	-- Automatically set up your configuration after cloning packer.nvim
-	-- Put this at the end after all plugins
-	if packer_bootstrap then
-		require("packer").sync()
-	end
-end)
+	"github/copilot.vim",
+}, {
+	defaults = { lazy = false },
+	install = { colorscheme = { "nightfly", "tokyonight" } },
+	checker = { enabled = true },
+	change_detection = {
+		notify = false,
+	},
+	performance = {
+		rtp = {
+			disabled_plugins = {
+				"gzip",
+				"matchit",
+				"matchparen",
+				"netrwPlugin",
+				"tarPlugin",
+				"tohtml",
+				"tutor",
+				"zipPlugin",
+			},
+		},
+	},
+})

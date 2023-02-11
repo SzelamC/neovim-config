@@ -31,7 +31,17 @@ treesitter.setup({
 	indent = { enable = true },
 	-- enable autotagging (w/ nvim-ts-autotag plugin)
 	autotag = { enable = true },
-	rainbow = { enable = true, disable = { "jsx", "tsx", "svelte" } },
+	rainbow = {
+		enable = true,
+		disable = {},
+		extended_mode = false,
+		colors = {
+			"#FD8A8A",
+			"#F6C6EA",
+			"#FAAB7B",
+			"#F9F9C5",
+		},
+	},
 	-- ensure these language parsers are installed
 	ensure_installed = {
 		"javascript",

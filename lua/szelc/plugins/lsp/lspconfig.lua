@@ -97,7 +97,6 @@ lspconfig["sumneko_lua"].setup({
 	},
 })
 
--- configure svelte server
 lspconfig["svelte"].setup({})
 lspconfig["pyright"].setup({
 	on_attach = on_attach,
@@ -121,3 +120,19 @@ lspconfig["dockerls"].setup({})
 lspconfig["svelte"].setup({})
 lspconfig["prismals"].setup({})
 lspconfig["emmet_ls"].setup({})
+lspconfig["dartls"].setup({})
+lspconfig["stylelint_lsp"].setup({
+	filetypes = {
+		"css",
+		"less",
+		"scss",
+		"sugarss",
+		"vue",
+		"wxss",
+		"javascript",
+		"javascriptreact",
+		"typescript",
+		"typescriptreact",
+    "svelte"
+	},
+})
