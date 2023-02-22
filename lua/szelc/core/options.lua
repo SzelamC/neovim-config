@@ -24,6 +24,7 @@ opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "yes"
 opt.guicursor = ""
+opt.cursorline = true
 
 --backspace
 opt.backspace = "indent,eol,start"
@@ -56,20 +57,19 @@ opt.backup = false
 opt.scrolloff = 8
 opt.sidescrolloff = 8
 opt.timeoutlen = 200
-opt.updatetime = 50
 
 vim.diagnostic.config({
-  virtual_text = {
-    prefix = "  "
-  },
-  float = true
+	virtual_text = {
+		prefix = "  ",
+	},
+	float = true,
 })
 
 -- highlight
-vim.cmd[[
+vim.cmd([[
 autocmd!
 au TextYankPost * silent! lua vim.highlight.on_yank({higroup="Visual", timeout=40})
 augroup END
-]]
+]])
 
 vim.g.copilot_no_tab_map = true

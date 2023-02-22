@@ -44,10 +44,11 @@ keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<CR>")
 -- lsp related
 keymap.set("n", "<leader>lf", ":lua vim.lsp.buf.format()<CR>", { silent = true })
 
--- buffer line
-keymap.set("n", "H", ":BufferLineCyclePrev<CR>")
-keymap.set("n", "L", ":BufferLineCycleNext<CR>")
-keymap.set("n", "<leader>c", ":bd!<CR>", opts)
+-- barbar
+keymap.set("n", "H", ":BufferPrevious<CR>")
+keymap.set("n", "L", ":BufferNext<CR>")
+keymap.set("n", "<leader>c", ":BufferClose<CR>", opts)
+keymap.set("n", "<leader>bp", ":BufferPin<CR>", opts)
 
 -- Lspsaga
 keymap.set("n", "<leader>la", "<cmd>Lspsaga code_action<CR>", opts)
@@ -55,9 +56,6 @@ keymap.set("n", "gd", "<cmd>Lspsaga hover_doc<CR>", opts)
 keymap.set("n", "gr", "<cmd>Lspsaga rename<CR>", opts)
 keymap.set("n", "<leader>gd", "<cmd>Lspsaga goto_definition<CR>", opts)
 keymap.set("n", "ge", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
-
--- python
-keymap.set("n", "<leader>r", ":sp<CR> :term python3 %<CR>")
 
 -- disable
 keymap.set("n", "q", "<Nop>")

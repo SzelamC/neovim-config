@@ -11,10 +11,10 @@ if not cmp_nvim_lsp_status then
 end
 
 -- import typescript plugin safely
-local typescript_setup, typescript = pcall(require, "typescript")
-if not typescript_setup then
-	return
-end
+-- local typescript_setup, typescript = pcall(require, "typescript")
+-- if not typescript_setup then
+-- 	return
+-- end
 
 local keymap = vim.keymap -- for conciseness
 
@@ -57,11 +57,15 @@ for type, icon in pairs(signs) do
 end
 
 -- configure typescript server with plugin
-typescript.setup({
-	server = {
-		capabilities = capabilities,
-		on_attach = on_attach,
-	},
+-- typescript.setup({
+-- 	server = {
+-- 		capabilities = capabilities,
+-- 		on_attach = on_attach,
+-- 	},
+-- })
+lspconfig["tsserver"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
 })
 
 -- configure css server
@@ -77,7 +81,7 @@ lspconfig["tailwindcss"].setup({
 })
 
 -- configure lua server (with special settings)
-lspconfig["sumneko_lua"].setup({
+lspconfig["lua_ls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 	settings = { -- custom settings for lua
@@ -133,6 +137,15 @@ lspconfig["stylelint_lsp"].setup({
 		"javascriptreact",
 		"typescript",
 		"typescriptreact",
-    "svelte"
+		"svelte",
+	},
+})
+lspconfig["rust_analyzer"].setup({
+	settings = {
+		["rust-analyzer"] = {
+			check = {
+				command = "clippy",
+			},
+		},
 	},
 })
