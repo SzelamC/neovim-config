@@ -29,7 +29,7 @@ keymap.set("n", "<leader>y", '"+y')
 keymap.set("v", "<leader>y", '"+y')
 keymap.set("n", "<leader>vs", ":vsplit<CR>")
 keymap.set("n", "<leader>s", ":split<CR>")
-keymap.set("n", "<leader>q", "<C-w><C-o>")
+keymap.set("n", "<leader>q", ":BufferClose<CR> <C-w>q")
 
 -- Nvim Tree
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
@@ -51,11 +51,11 @@ keymap.set("n", "<leader>c", ":BufferClose<CR>", opts)
 keymap.set("n", "<leader>bp", ":BufferPin<CR>", opts)
 
 -- Lspsaga
-keymap.set("n", "<leader>la", "<cmd>Lspsaga code_action<CR>", opts)
-keymap.set("n", "gd", "<cmd>Lspsaga hover_doc<CR>", opts)
-keymap.set("n", "gr", "<cmd>Lspsaga rename<CR>", opts)
-keymap.set("n", "<leader>gd", "<cmd>Lspsaga goto_definition<CR>", opts)
-keymap.set("n", "ge", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
+keymap.set("n", "<leader>la", ":Lspsaga code_action<CR>", opts)
+keymap.set("n", "<leader>gd", ":Lspsaga hover_doc<CR>", opts)
+keymap.set("n", "gr", ":Lspsaga rename<CR>", opts)
+keymap.set("n", "gd", ":Lspsaga goto_type_definition<CR>", opts)
+keymap.set("n", "ge", ":Lspsaga show_line_diagnostics<CR>", opts)
 
 -- disable
 keymap.set("n", "q", "<Nop>")

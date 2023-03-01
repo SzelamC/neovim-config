@@ -6,6 +6,9 @@ end
 saga.setup({
 	-- keybinds for navigation in lspsaga window
 	move_in_saga = { prev = "<C-k>", next = "<C-j>" },
+	diagnostic = {
+		on_insert = false,
+	},
 	-- use enter to open file with finder
 	finder_action_keys = {
 		open = "<CR>",
