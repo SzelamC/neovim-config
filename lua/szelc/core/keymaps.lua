@@ -54,7 +54,7 @@ keymap.set("n", "<leader>bp", ":BufferPin<CR>", opts)
 keymap.set("n", "<leader>la", ":Lspsaga code_action<CR>", opts)
 keymap.set("n", "<leader>gd", ":Lspsaga hover_doc<CR>", opts)
 keymap.set("n", "gr", ":Lspsaga rename<CR>", opts)
-keymap.set("n", "gd", ":Lspsaga goto_type_definition<CR>", opts)
+keymap.set("n", "gd", ":Lspsaga goto_definition<CR>", opts)
 keymap.set("n", "ge", ":Lspsaga show_line_diagnostics<CR>", opts)
 
 -- disable
