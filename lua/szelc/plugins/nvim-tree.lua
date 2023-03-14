@@ -11,8 +11,8 @@ vim.cmd([[highlight NvimTreeIndentMarker guifg=#3FC5FF]])
 nvimTree.setup({
 -- BEGIN_DEFAULT_OPTS
   auto_reload_on_write = true,
-  disable_netrw = false,
-  hijack_cursor = false,
+  disable_netrw = true,
+  hijack_cursor = true,
   hijack_netrw = true,
   hijack_unnamed_buffer_when_opening = false,
   ignore_buffer_on_setup = false,

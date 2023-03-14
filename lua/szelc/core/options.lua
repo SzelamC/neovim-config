@@ -1,4 +1,5 @@
 local opt = vim.opt
+local g = vim.g
 
 -- line number
 opt.relativenumber = true
@@ -10,7 +11,7 @@ opt.shiftwidth = 2
 opt.expandtab = true
 opt.autoindent = true
 opt.smartindent = true
-opt.softtabstop = 4
+opt.softtabstop = 2
 
 -- line wrapping
 opt.wrap = false
@@ -18,6 +19,7 @@ opt.wrap = false
 -- search settings
 opt.ignorecase = true
 opt.smartcase = true
+opt.fillchars = { eob = " " }
 
 -- apperance
 opt.termguicolors = true
@@ -57,12 +59,15 @@ opt.backup = false
 opt.scrolloff = 8
 opt.sidescrolloff = 8
 opt.timeoutlen = 200
+opt.undofile = true
+opt.updatetime = 250
+opt.whichwrap:append("<>[]hl")
 
 vim.diagnostic.config({
-	virtual_text = {
-		prefix = "  ",
-	},
-	float = true,
+  virtual_text = {
+    prefix = "  ",
+  },
+  float = true,
 })
 
 -- highlight
@@ -73,3 +78,47 @@ augroup END
 ]])
 
 vim.g.copilot_no_tab_map = true
+
+local default_plugins = {
+  "2html_plugin",
+  "getscript",
+  "getscriptPlugin",
+  "gzip",
+  "logipat",
+  "netrw",
+  "netrwPlugin",
+  "netrwSettings",
+  "netrwFileHandlers",
+  "matchit",
+  "tar",
+  "tarPlugin",
+  "rrhelper",
+  "spellfile_plugin",
+  "vimball",
+  "vimballPlugin",
+  "zip",
+  "zipPlugin",
+  "tutor",
+  "rplugin",
+  "syntax",
+  "synmenu",
+  "optwin",
+  "compiler",
+  "bugreport",
+  "ftplugin",
+}
+
+for _, plugin in pairs(default_plugins) do
+  g["loaded_" .. plugin] = 1
+end
+
+local default_providers = {
+  "node",
+  "perl",
+  "python3",
+  "ruby",
+}
+
+for _, provider in ipairs(default_providers) do
+  vim.g["loaded_" .. provider .. "_provider"] = 0
+end
