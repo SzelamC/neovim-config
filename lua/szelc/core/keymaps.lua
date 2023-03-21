@@ -31,7 +31,7 @@ keymap.set("n", "<leader>vs", ":vsplit<CR>")
 keymap.set("n", "<leader>s", ":split<CR>")
 keymap.set("n", "<leader>c", ":lua require('mini.bufremove').delete(0, false)<CR>", opts)
 
--- Nvim Tree
+-- neo tree
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
 
 -- Telescope
@@ -48,13 +48,6 @@ keymap.set("n", "<leader>lf", ":lua vim.lsp.buf.format()<CR>", { silent = true }
 keymap.set("n", "H", ":BufferLineCyclePrev<CR>")
 keymap.set("n", "L", ":BufferLineCycleNext<CR>")
 keymap.set("n", "<leader>bp", ":BufferLineTogglePin<CR>", opts)
-
--- Lspsaga
-keymap.set("n", "<leader>la", ":Lspsaga code_action<CR>", opts)
-keymap.set("n", "<leader>gd", ":Lspsaga hover_doc<CR>", opts)
-keymap.set("n", "gr", ":Lspsaga rename<CR>", opts)
-keymap.set("n", "gd", ":Lspsaga goto_definition<CR>", opts)
-keymap.set("n", "ge", ":Lspsaga show_line_diagnostics<CR>", opts)
 
 -- disable
 keymap.set("n", "q", "<Nop>")

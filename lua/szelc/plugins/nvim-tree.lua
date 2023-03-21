@@ -6,10 +6,10 @@ end
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-vim.cmd([[highlight NvimTreeIndentMarker guifg=#3FC5FF]])
+vim.cmd([[highlight NvimTreeIndentMarker guifg=#95BDFF]])
 
 nvimTree.setup({
--- BEGIN_DEFAULT_OPTS
+  -- BEGIN_DEFAULT_OPTS
   auto_reload_on_write = true,
   disable_netrw = true,
   hijack_cursor = true,
@@ -23,7 +23,7 @@ nvimTree.setup({
   prefer_startup_root = true,
   sync_root_with_cwd = true,
   reload_on_bufenter = false,
-  respect_buf_cwd = false,
+  respect_buf_cwd = true,
   on_attach = "default",
   remove_keymaps = false,
   select_prompts = false,
@@ -42,7 +42,8 @@ nvimTree.setup({
       custom_only = false,
       list = {
         -- user mappings go here
-        { key = { "l", "CR", "o" }, action = "edit", mode = "n" },
+        { key = { "l", "CR", "o" }, action = "edit",            mode = "n" },
+        { key = { "r" },            action = "rename_basename", mode = "n" },
       },
     },
     float = {
@@ -61,8 +62,8 @@ nvimTree.setup({
   renderer = {
     add_trailing = false,
     group_empty = false,
-    highlight_git = false,
-    full_name = false,
+    highlight_git = true,
+    full_name = true,
     highlight_opened_files = "none",
     highlight_modified = "none",
     root_folder_label = ":~:s?$?/..?",
@@ -80,7 +81,7 @@ nvimTree.setup({
     },
     icons = {
       webdev_colors = true,
-      git_placement = "before",
+      git_placement = "after",
       modified_placement = "after",
       padding = " ",
       symlink_arrow = " ➛ ",
@@ -107,13 +108,13 @@ nvimTree.setup({
           symlink_open = "",
         },
         git = {
-          unstaged = "✗",
-          staged = "✓",
           unmerged = "",
-          renamed = "➜",
-          untracked = "★",
-          deleted = "",
           ignored = "◌",
+          deleted = "✖", -- this can only be used in the git_status source
+          renamed = "", -- this can only be used in the git_status source
+          untracked = "",
+          unstaged = "",
+          staged = "",
         },
       },
     },
@@ -126,7 +127,7 @@ nvimTree.setup({
   },
   update_focused_file = {
     enable = true,
-    update_root = true,
+    update_root = false,
     ignore_list = {},
   },
   ignore_ft_on_setup = {},
@@ -135,7 +136,7 @@ nvimTree.setup({
     args = {},
   },
   diagnostics = {
-    enable = false,
+    enable = true,
     show_on_dirs = false,
     show_on_open_dirs = true,
     debounce_delay = 50,
@@ -215,7 +216,7 @@ nvimTree.setup({
     cmd = "gio trash",
   },
   live_filter = {
-    prefix = "[FILTER]: ",
+    prefix = "🔍 ",
     always_show_folders = true,
   },
   tab = {

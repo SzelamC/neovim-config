@@ -19,3 +19,6 @@ require("szelc.core.keymaps")
 -- require("szelc.plugins.vim-pulse")
 -- require("szelc.plugins.leetcode")
 -- require('szelc.plugins.fidget')
+vim.cmd([[
+autocmd! FileType * set formatoptions-=cro
+]])

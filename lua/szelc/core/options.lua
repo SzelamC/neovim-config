@@ -62,7 +62,6 @@ opt.timeoutlen = 200
 opt.undofile = true
 opt.updatetime = 250
 opt.whichwrap:append("<>[]hl")
-
 vim.diagnostic.config({
   virtual_text = {
     prefix = "  ",

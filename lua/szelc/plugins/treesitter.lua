@@ -3,6 +3,11 @@ if not status then
   return
 end
 
+vim.api.nvim_set_hl(0, "@rainbow.red", { fg = "#FD8A8A" })
+vim.api.nvim_set_hl(0, "@rainbow.pink", { fg = "#F6C6EA" })
+vim.api.nvim_set_hl(0, "@rainbow.yellow", { fg = "#F9F9C5" })
+vim.api.nvim_set_hl(0, "@rainbow.orange", { fg = "#FAAB7B" })
+
 -- configure treesitter
 treesitter.setup({
   -- enable syntax highlighting
@@ -44,11 +49,11 @@ treesitter.setup({
     enable = true,
     disable = {},
     extended_mode = false,
-    colors = {
-      "#FD8A8A",
-      "#F6C6EA",
-      "#FAAB7B",
-      "#F9F9C5",
+    hlgroups = {
+      "@rainbow.red",
+      "@rainbow.pink",
+      "@rainbow.yellow",
+      "@rainbow.orange",
     },
   },
   -- ensure these language parsers are installed
