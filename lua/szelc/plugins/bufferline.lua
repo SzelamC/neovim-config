@@ -28,10 +28,13 @@ require("bufferline").setup({
         separator = true,
       },
     },
-    color_icons = true,            -- whether or not to add the filetype icon highlights
-    show_buffer_icons = true,      -- disable filetype icons for buffers
+    color_icons = true,     -- whether or not to add the filetype icon highlights
+    show_buffer_icons = true, -- disable filetype icons for buffers
     show_buffer_close_icons = true,
-    show_buffer_default_icon = true, -- whether or not an unrecognised filetype should show a default icon
+    -- show_buffer_default_icon = true, -- whether or not an unrecognised filetype should show a default icon
+    get_element_icon = function(buf)
+      return require("nvim-web-devicons").get_icon(buf.name, buf.extension, { default = true })
+    end,
     show_close_icon = true,
     show_tab_indicators = true,
     show_duplicate_prefix = true, -- whether to show duplicate buffer prefix
