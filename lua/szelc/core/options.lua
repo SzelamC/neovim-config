@@ -60,7 +60,6 @@ opt.scrolloff = 8
 opt.sidescrolloff = 8
 opt.timeoutlen = 200
 opt.undofile = true
-opt.updatetime = 250
 opt.whichwrap:append("<>[]hl")
 vim.diagnostic.config({
   virtual_text = {
@@ -111,13 +110,3 @@ for _, plugin in pairs(default_plugins) do
   g["loaded_" .. plugin] = 1
 end
 
-local default_providers = {
-  "node",
-  "perl",
-  "python3",
-  "ruby",
-}
-
-for _, provider in ipairs(default_providers) do
-  vim.g["loaded_" .. provider .. "_provider"] = 0
-end

@@ -11,6 +11,7 @@ keymap.set("i", "jk", "<ESC>")
 keymap.set("i", ";;", "<ESC>A;")
 keymap.set("n", "<leader>h", ":nohl<CR>")
 keymap.set("n", "x", '"_x')
+keymap.set("v", "d", '"_d')
 keymap.set("n", "<C-s>", ":w<CR>")
 keymap.set("n", "<C-h>", "<C-w>h")
 keymap.set("n", "<C-j>", "<C-w>j")
@@ -31,7 +32,6 @@ keymap.set("n", "<leader>vs", ":vsplit<CR>")
 keymap.set("n", "<leader>s", ":split<CR>")
 keymap.set("n", "<leader>c", ":lua require('mini.bufremove').delete(0, false)<CR>", opts)
 
--- neo tree
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
 
 -- Telescope

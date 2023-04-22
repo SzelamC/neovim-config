@@ -28,7 +28,6 @@ local on_attach = function(client, bufnr)
   keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts)                    -- show definition, references
   keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)         -- got to declaration
   keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)      -- go to implementation
-  keymap.set("n", "<leader>e", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)  -- show  diagnostics for line
   keymap.set("n", "<leader>d", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts) -- show diagnostics for cursor
   keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)          -- jump to previous diagnostic in buffer
   keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)          -- jump to next diagnostic in buffer
@@ -151,3 +150,4 @@ lspconfig["rust_analyzer"].setup({
   },
 })
 lspconfig["gopls"].setup({})
+lspconfig["hls"].setup({})

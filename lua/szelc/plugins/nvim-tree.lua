@@ -126,8 +126,8 @@ nvimTree.setup({
     auto_open = true,
   },
   update_focused_file = {
-    enable = true,
-    update_root = false,
+    enable = false,
+    update_root = true,
     ignore_list = {},
   },
   ignore_ft_on_setup = {},
@@ -136,7 +136,7 @@ nvimTree.setup({
     args = {},
   },
   diagnostics = {
-    enable = true,
+    enable = false,
     show_on_dirs = false,
     show_on_open_dirs = true,
     debounce_delay = 50,
@@ -196,7 +196,7 @@ nvimTree.setup({
       },
     },
     open_file = {
-      quit_on_open = false,
+      quit_on_open = true,
       resize_window = true,
       window_picker = {
         enable = true,

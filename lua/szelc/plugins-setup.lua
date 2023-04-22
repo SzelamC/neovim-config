@@ -93,7 +93,7 @@ require("lazy").setup({
       require("onedark").setup({
         style = "deep",
         cmp_itemkind_reverse = false,
-        transparent = false,
+        transparent = true,
         toggle_style_key = "<leader>ts",
         toggle_style_list = { "dark", "darker", "cool", "deep", "warm", "warmer", "light" },
         diagnostics = {
@@ -373,6 +373,10 @@ require("lazy").setup({
       require("gitsigns").setup(opts)
     end,
   },
+  {
+    "tpope/vim-fugitive",
+  },
+
   -- -- playground
   -- "ThePrimeagen/vim-be-good",
 
@@ -384,6 +388,13 @@ require("lazy").setup({
         ["chatgpt"] = false,
         ["*"] = true,
       }
+    end,
+  },
+  {
+    "ianding1/leetcode.vim",
+    config = function()
+      vim.g.leetcode_browser = "firefox"
+      vim.g.leetcode_solution_filetype = "javascript"
     end,
   },
 }, {
